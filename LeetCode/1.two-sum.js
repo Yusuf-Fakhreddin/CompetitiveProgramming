@@ -13,6 +13,18 @@
 
 // O(n) solution
 var twoSum = function (nums, target) {
+	let map = new Map();
+	let otherValue, exist;
+	for (let i = 0; i < nums.length; i++) {
+		otherValue = target - nums[i];
+		exist = map.has(otherValue);
+		if (exist) return [i, map.get(otherValue)];
+		else map.set(nums[i], i);
+	}
+};
+/*
+// O(n*n) solution
+var twoSum = function (nums, target) {
 	let index1, index2, otherValue;
 	for (let i = 0; i < nums.length; i++) {
 		otherValue = target - nums[i];
@@ -23,7 +35,7 @@ var twoSum = function (nums, target) {
 		}
 	}
 };
-
+*/
 /*
 O(n*n) solution
 var twoSum = function (nums, target) {
@@ -39,5 +51,4 @@ var twoSum = function (nums, target) {
 	return [index1, index2];
 }; */
 
-console.log(twoSum([3, 3], 6));
 // @lc code=end
